@@ -9,9 +9,6 @@ namespace Shotcounter
         int blankshots = 0;
         int shots = 0;
         int currentshot = 0;
-
-
-
         //Start Values
         public ShotCounter()
         {
@@ -89,24 +86,33 @@ namespace Shotcounter
 
         private void btnLive_Click(object sender, EventArgs e)
         {
-            liveshots--;
-            lbllive.Text = liveshots.ToString();
-            currentshot++;
+            if (liveshots > 0) // Check if there are liveshots left
+            {
+                liveshots--;
+                lbllive.Text = liveshots.ToString();
+                currentshot++;
+                lblshotnumber.Text = currentshot.ToString();
 
-            lblshotnumber.Text = currentshot.ToString();
-            int templiveshots = liveshots - 1;
-            tblive.Text = templiveshots.ToString();
+                tblive.TextChanged -= tblive_TextChanged; // Temporarily remove the event handler
+                tblive.Text = liveshots.ToString();
+                tblive.TextChanged += tblive_TextChanged; // Reattach the event handler
+            }
 
         }
 
         private void btnblank_Click(object sender, EventArgs e)
         {
-            blankshots--;
-            lblblank.Text = blankshots.ToString();
-            currentshot++;
-            lblshotnumber.Text = currentshot.ToString();
-            int tempblankshots = blankshots - 1;
-            tbblank.Text = tempblankshots.ToString();
+            if (blankshots > 0) // Check if there are blankshots left
+            {
+                blankshots--;
+                lblblank.Text = blankshots.ToString();
+                currentshot++;
+                lblshotnumber.Text = currentshot.ToString();
+
+                tbblank.TextChanged -= tbblank_TextChanged; // Temporarily remove the event handler
+                tbblank.Text = blankshots.ToString();
+                tbblank.TextChanged += tbblank_TextChanged; // Reattach the event handler
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -115,8 +121,13 @@ namespace Shotcounter
             blankshots = 0;
             shots = 0;
             currentshot = 0;
-            tbblank.Text = String.Empty;
-            lbllive.Text = String.Empty;
+
+            tblive.Text = "0";  
+            tbblank.Text = "0";  
+            lbllive.Text = "0";  
+            lblblank.Text = "0";  
+            lblshotnumber.Text = "0";  
+            lblshots.Text = "0";
         }
     }
 }

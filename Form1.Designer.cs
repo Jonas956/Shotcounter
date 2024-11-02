@@ -54,6 +54,7 @@
             tblive.Name = "tblive";
             tblive.Size = new Size(114, 23);
             tblive.TabIndex = 0;
+            tblive.Text = "0";
             tblive.TextChanged += tblive_TextChanged;
             // 
             // tbblank
@@ -62,6 +63,7 @@
             tbblank.Name = "tbblank";
             tbblank.Size = new Size(122, 23);
             tbblank.TabIndex = 1;
+            tbblank.Text = "0";
             tbblank.TextChanged += tbblank_TextChanged;
             // 
             // label1

@@ -30,14 +30,14 @@ namespace Shotcounter
             }
             else
             {
-               
+
                 if (int.TryParse(tblive.Text, out int value))
                 {
                     liveshots = value;
                 }
                 else
                 {
-                   
+
                     liveshots = 0;
                 }
             }
@@ -61,14 +61,14 @@ namespace Shotcounter
             }
             else
             {
-                
+
                 if (int.TryParse(tbblank.Text, out int value))
                 {
                     blankshots = value;
                 }
                 else
                 {
-                    
+
                     blankshots = 0;
                 }
             }
@@ -122,12 +122,32 @@ namespace Shotcounter
             shots = 0;
             currentshot = 0;
 
-            tblive.Text = "0";  
-            tbblank.Text = "0";  
-            lbllive.Text = "0";  
-            lblblank.Text = "0";  
-            lblshotnumber.Text = "0";  
+            tblive.Text = "0";
+            tbblank.Text = "0";
+            lbllive.Text = "0";
+            lblblank.Text = "0";
+            lblshotnumber.Text = "0";
             lblshots.Text = "0";
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBox1.Checked)
+            {
+                pictureBox1.Visible = false;
+            }
+
+            else
+            {
+                 pictureBox1.Visible = true;
+            }
+
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

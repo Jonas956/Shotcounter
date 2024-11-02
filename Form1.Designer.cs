@@ -45,6 +45,7 @@
             label4 = new Label();
             label6 = new Label();
             pictureBox1 = new PictureBox();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -195,12 +196,25 @@
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(21, 298);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(92, 19);
+            checkBox1.TabIndex = 16;
+            checkBox1.Text = "Disable Peak";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            checkBox1.CheckStateChanged += checkBox1_CheckStateChanged;
+            // 
             // ShotCounter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(435, 355);
+            Controls.Add(checkBox1);
             Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(label4);
@@ -244,5 +258,6 @@
         private Label label4;
         private Label label6;
         private PictureBox pictureBox1;
+        private CheckBox checkBox1;
     }
 }
